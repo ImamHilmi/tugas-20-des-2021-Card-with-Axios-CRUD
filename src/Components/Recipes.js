@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useEffect, useState, useRef} from 'react';
+import {useEffect, useState} from 'react';
 import RecipeCard from './RecipeCard'
 import useStyles from './Style'
 import {Button, Container, CssBaseline, Grid, Typography, Modal, Box, TextField} from "@mui/material";
@@ -13,9 +13,9 @@ export default function Recipes() {
   const [judul, setJudul] = useState("");
   const [deskripsi, setDeskripsi] = useState("");
   const [foto, setFoto] = useState("");
-  const editJudul = useRef(null);
-  const editDeskripsi = useRef(null);
-  const editFoto = useRef(null);
+  // const editJudul = useRef(null);
+  // const editDeskripsi = useRef(null);
+  // const editFoto = useRef(null);
   
   const judulHandle = (event) => {
     setJudul(event.target.value);
@@ -43,24 +43,24 @@ export default function Recipes() {
     setFoto("");
   }
 
-  const deleteHandler = (event)=> {
-    event.preventDefault();
-    axios.delete( 'http://localhost:1234/recipes/${id}');
-   setRefresh(!refresh);
-  } 
+//   const deleteHandler = async (event, id)=> {
+//     event.preventDefault();
+//     axios.delete( `http://localhost:1234/recipes/${id}`);
+//    setRefresh(!refresh);
+//   } 
 
-  const putHandler = (event, editJudul, editDeskripsi, editFoto)=> {
-    event.preventDefault();
+//   const putHandler = async (event, id, editJudul, editDeskripsi, editFoto)=> {
+//     event.preventDefault();
     
-    const editData = {
-        judul: editJudul.current.value,
-        deskripsi: editDeskripsi.current.value,
-        foto: editFoto.current.value,
-    };
+//     const editData = {
+//         judul: editJudul.current.value,
+//         deskripsi: editDeskripsi.current.value,
+//         foto: editFoto.current.value,
+//     };
 
-    axios.put( 'http://localhost:1234/recipes/${id}' + editData );
-    setRefresh(!refresh);
-}
+//     axios.put( `http://localhost:1234/recipes/${id}`, editData );
+//     setRefresh(!refresh);
+// }
 
   //deps = [] -- dijalankan hanya sekali
   useEffect(()=>{
@@ -120,7 +120,7 @@ export default function Recipes() {
         <Container className={classes.cardGrid} maxWidth="md">
           <Grid container spacing={4}>
             {cards.map((card) => (
-              <RecipeCard key={card.id} card={card} editJudul={editJudul} editDeskripsi={editDeskripsi} editFoto={editFoto} onDelete={deleteHandler} onEdit={putHandler} />
+              <RecipeCard key={card.id} card={card} setRefresh={setRefresh} refresh={refresh} />
             ))}
           </Grid>
         </Container>

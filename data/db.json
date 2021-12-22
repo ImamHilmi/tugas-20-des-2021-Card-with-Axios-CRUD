@@ -1,63 +1,69 @@
 {
-    "pengguna": [
-      {
-        "id": 1,
-        "username": "test",
-        "email": "ane@gmail.com",
-        "password": "password"
-      },
-      {
-        "username": "a",
-        "email": "Prosigmaka@gmail.com",
-        "password": "a",
-        "id": 2
-      },
-      {
-        "id": 3
-      },
-      {
-        "username": "ab",
-        "email": "Prosigmaka@gmail.com",
-        "password": "ab",
-        "id": 4
-      }
-    ],
-    "candidate": [
-      {
-        "nama": "Aldy Gunawan",
-        "jenisKelamin": "Laki-laki",
-        "tempatLahir": "sa",
-        "tanggalLahir": "2021-04-24",
-        "alamat": "Gunung",
-        "email": "aaaa@gmail.com",
-        "noHp": "+6282838383883",
-        "id": 1
-      }
-    ],
-    "recipes": [
-      {
-        "id": 1,
-        "judul": "Soto",
-        "deskripsi": "Sample text, bebas diisi apa saja yang baik-baik sesuka hati anda",
-        "foto": "https://source.unsplash.com/random"
-      },
-      {
-        "id": 2,
-        "judul": "Bakso",
-        "deskripsi": "Sample text, bebas diisi apa saja yang baik-baik sesuka hati anda",
-        "foto": "https://source.unsplash.com/random"
-      },
-      {
-        "id": 3,
-        "judul": "Sate",
-        "deskripsi": "Sample text, bebas diisi apa saja yang baik-baik sesuka hati anda",
-        "foto": "https://source.unsplash.com/random"
-      },
-      {
-        "id": 4,
-        "judul": "Rendang",
-        "deskripsi": "Sample text, bebas diisi apa saja yang baik-baik sesuka hati anda",
-        "foto": "https://source.unsplash.com/random"
-      }
-    ]
-  }
+  "pengguna": [
+    {
+      "id": 1,
+      "username": "test",
+      "email": "ane@gmail.com",
+      "password": "password"
+    },
+    {
+      "username": "a",
+      "email": "Prosigmaka@gmail.com",
+      "password": "a",
+      "id": 2
+    },
+    {
+      "id": 3
+    },
+    {
+      "username": "ab",
+      "email": "Prosigmaka@gmail.com",
+      "password": "ab",
+      "id": 4
+    }
+  ],
+  "candidate": [
+    {
+      "nama": "Aldy Gunawan",
+      "jenisKelamin": "Laki-laki",
+      "tempatLahir": "sa",
+      "tanggalLahir": "2021-04-24",
+      "alamat": "Gunung",
+      "email": "aaaa@gmail.com",
+      "noHp": "+6282838383883",
+      "id": 1
+    }
+  ],
+  "recipes": [
+    {
+      "id": 2,
+      "judul": "Bakso",
+      "deskripsi": "Sample text, bebas diisi apa saja yang baik-baik sesuka hati anda",
+      "foto": "https://source.unsplash.com/random"
+    },
+    {
+      "id": 3,
+      "judul": "Sate",
+      "deskripsi": "Sample text, bebas diisi apa saja yang baik-baik sesuka hati anda",
+      "foto": "https://source.unsplash.com/random"
+    },
+    {
+      "id": 4,
+      "judul": "Rendang",
+      "deskripsi": "Sample text, bebas diisi apa saja yang baik-baik sesuka hati anda",
+      "foto": "https://source.unsplash.com/random"
+    },
+    {
+      "judul": "Air Mineral",
+      "deskripsi": "Hanya air mineral biasa",
+      "foto": "https://static.bmdstatic.com/pk/product/medium/5eec6f319888c.jpg",
+      "id": 5
+    },
+    {
+      "judul": "adad",
+      "deskripsi": "adad",
+      "foto": "https://source.unsplash.com/random",
+      "id": 6
+    }
+  ]
+}

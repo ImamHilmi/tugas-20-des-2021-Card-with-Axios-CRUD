@@ -1,7 +1,8 @@
 import * as React from 'react';
-import {Button, Card, CardActions, CardContent, CardMedia, Grid, Typography, Modal, Box, TextField} from "@mui/material";
+import {Button, Card, CardActions, CardContent, CardMedia, Grid, Typography, Modal, Box, OutlinedInput} from "@mui/material";
 import {makeStyles} from "@mui/styles";
 import {useRef} from "react";
+import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
     card: {
@@ -17,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const RecipeCard = ({ card, editJudul, editDeskripsi, editFoto, onDelete, onEdit }) => {
+const RecipeCard = ({ card, refresh, setRefresh }) => {
     const classes = useStyles();
     console.log(card)
 
@@ -36,6 +37,28 @@ const RecipeCard = ({ card, editJudul, editDeskripsi, editFoto, onDelete, onEdit
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+    const editJudul = useRef(null);
+    const editDeskripsi = useRef(null);
+    const editFoto = useRef(null);
+
+    const deleteHandler = async (event, card)=> {
+        event.preventDefault();
+        axios.delete( `http://localhost:1234/recipes/` + card.id);
+       setRefresh(!refresh);
+      } 
+    
+      const putHandler = async (event, card, editJudul, editDeskripsi, editFoto)=> {
+        event.preventDefault();
+        
+        const editData = {
+            judul: editJudul.current.value,
+            deskripsi: editDeskripsi.current.value,
+            foto: editFoto.current.value,
+        };
+    
+        axios.put( `http://localhost:1234/recipes/` + card.id, editData );
+        setRefresh(!refresh);
+    }
 
     return (
         <>
@@ -56,7 +79,7 @@ const RecipeCard = ({ card, editJudul, editDeskripsi, editFoto, onDelete, onEdit
                     </CardContent>
                     <CardActions>
                         <Button size="small" onClick={handleOpen} >Edit</Button>
-                        <Button size="small" onClick={onDelete} >Delete</Button>
+                        <Button size="small" onClick={deleteHandler} >Delete</Button>
                     </CardActions>
                 </Card>
             </Grid>
@@ -76,7 +99,7 @@ const RecipeCard = ({ card, editJudul, editDeskripsi, editFoto, onDelete, onEdit
                     noValidate
                     autoComplete="off"
                 >
-                    <TextField
+                    <OutlinedInput
                     id="outlined-judul"
                     name="judul"
                     label="judul"
@@ -91,7 +114,7 @@ const RecipeCard = ({ card, editJudul, editDeskripsi, editFoto, onDelete, onEdit
                     noValidate
                     autoComplete="off"
                 >
-                    <TextField
+                    <OutlinedInput
                     id="outlined-deskripsi"
                     name="deskripsi"
                     label="deskripsi"
@@ -106,14 +129,14 @@ const RecipeCard = ({ card, editJudul, editDeskripsi, editFoto, onDelete, onEdit
                     noValidate
                     autoComplete="off"
                 >
-                    <TextField
+                    <OutlinedInput
                     id="outlined-foto"
                     name="foto"
                     label="foto"
                     inputRef={editFoto}
                     />
                 </Box>
-                <Button variant="contained" onClick={onEdit}>
+                <Button variant="contained" onClick={putHandler}>
                     Edit Menu
                 </Button> 
                 </Box>
